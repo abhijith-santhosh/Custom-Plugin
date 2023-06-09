@@ -17,7 +17,7 @@ jobs:
       - name: 🔑 Setup SSH
         uses: webfactory/ssh-agent@v0.5.2
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.AWS_PRIVATE_KEY }}
 
       - name: 📂 Sync files
         run: scp -r -i ~/Desktop/fcart.pem -o StrictHostKeyChecking=no C:\xampp\htdocs\furniture\wp-content\plugins\weather-plugin bitnami@54.168.195.181:/opt/bitnami/wordpress/wp-content/plugins/
