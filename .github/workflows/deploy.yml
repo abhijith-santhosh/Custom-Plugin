@@ -20,7 +20,7 @@ jobs:
           ssh-private-key: ${{ secrets.AWS_PRIVATE_KEY }}
 
       - name: 📂 Sync files
-        run: scp -r -i ~/Desktop/fcart.pem -o StrictHostKeyChecking=no C:\xampp\htdocs\furniture\wp-content\plugins\weather-plugin bitnami@54.168.195.181:/opt/bitnami/wordpress/wp-content/plugins/
+        run: scp -r -i ~/Desktop/fcart.pem -o StrictHostKeyChecking=no  $GITHUB_WORKSPACE/weather-plugin.php bitnami@54.168.195.181:/opt/bitnami/wordpress/wp-content/plugins/
 
 
 
