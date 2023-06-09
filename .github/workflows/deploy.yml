@@ -1,0 +1,25 @@
+name: 🚀 Deploy website on push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 🔑 Setup SSH
+        uses: webfactory/ssh-agent@v0.5.2
+        with:
+          ssh-private-key: ${{ secrets.AWS_PRIVATE_KEY }}
+
+      - name: 📂 Sync files
+        run: scp -r -i ~/.ssh/fcart.pem -o StrictHostKeyChecking=no htdocs\furniture\wp-content\plugins\weather-plugin bitnami@54.168.195.181:/opt/bitnami/wordpress/wp-content/plugins/
+
+
