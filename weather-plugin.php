@@ -48,7 +48,7 @@ function weather_plugin_display_temperature( $atts ) {
   ob_start();
   ?>
   <div class="weather-plugin-temperature">
-    Current Temperature in  <?php echo $location; ?>: <?php echo $temperature; ?>°C
+    Your Current Temperature in  <?php echo $location; ?>: <?php echo $temperature; ?>°C
   </div>
   <?php
   return ob_get_clean();
